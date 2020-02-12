@@ -1,0 +1,59 @@
+<!--overflow-x :裁剪 div 元素中内容的左/右边缘如果溢出元素的内容区域的话-->
+<!--outline:外边缘样式-->
+<!--word-wrap: break-word :允许长单词换行到下一行-->
+<!--border-radius:圆角-->
+<!--box-shadow:0 0 5px #F0F0F0：边缘阴影-->
+<!---->
+<!---->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="Keywords" content="关键字">
+		<meta name="description" content="网页描述文字">
+		<title>Insert title here</title>
+		<style type="text/css">
+			*{margin:0;padding:0;}
+			body{font-size:15px;font-family:"微软雅黑";}
+			.qq{height:210px;width:514px;;
+				border:2px solid #D0D0D0;border-radius:3px;box-shadow: 0 0 5px #F0F0F0;}
+			.qq .qq_bq{width:119px;height:210px;border:1px solid #E0E0E0;background:#f8f8f8;float:left;}
+			.qq .qq_bq li{list-style:none;background:#fff;line-height:30px;}
+			.qq .face{height:210px;width:390px;float:right;}
+			.qq .img{float:left;padding:2px;}
+			.qq .img li{list-style:none;float:left;padding:2px;}
+			.ground{height:150px;width:514px;border:2px solid #E0E0E0;border-radius:3px;box-shadow:0 0 5px #F0F0F0;
+				font-size:25px;font-family:"微软雅黑";}
+			.ground{min-height: 120px; max-height: 300px;outline: 0; word-wrap: break-word;overflow-x: hidden;overflow-y: auto;_overflow-y: visible;}
+			.ground img{padding:2px 2px 2px;}
+		</style>
+	</head>
+	<body>
+		<a href="#" onclick="change();">打开表情</a>
+		<div class="ground" contenteditable="true"> </div>
+		<!-- 表情框 -->
+		<div class="qq" id="myqq">
+			<ul class="qq_bq">
+				<li>微信表情</li>
+			</ul>
+			<div class="face">
+				<ul class="img">
+					<li><img src="images/a.jpg"  title="表情"/></li>
+				</ul>
+			</div>
+		</div>
+		<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+		<script type="text/javascript">
+			function change(){
+				$("#myqq").toggle("solw");
+			}
+			$(function(){
+				$(".face").find("li").click(function(){
+					var img=$(this).find("img").clone();
+					$(".ground").append(img);
+				})
+			});
+			
+		</script>
+	</body>
+</html>
